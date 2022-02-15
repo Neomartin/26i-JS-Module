@@ -1,0 +1,51 @@
+body {
+    color: rgba(255,255,255,0.60);
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+.banner {
+    color: white;
+    background-color: #111;
+    padding: 1rem 6rem !important;
+    background-image: url('/assets/image/js.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.pre-space {
+    white-space: pre;
+    display: block;
+    background-color: rgba(0,0,0,0.25);
+    border-radius: 10px;
+    margin: .5rem 0 1rem;
+}
+.navbar {
+    padding: 0;
+    background-image: linear-gradient(to right, #7299d1, #000 45%)  !important;
+}
+.navbar .navbar-brand {
+    padding: 0;
+}
+.navbar .navbar-brand img {
+    width: 50px;
+}
+.js-nav-links ul {
+    list-style: none;
+    padding: 0;
+}
+.js-nav-links li {
+    padding: .5rem 1rem;
+    text-align: center;
+    transition: background-color .2s ease-in-out;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+.js-nav-links li:hover {
+    background-color: #111;
+    color: #fff
+}
