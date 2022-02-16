@@ -46,7 +46,7 @@ if(edad > 55) {
 // } else if(edad > 55) {
 //     console.info("El valor de la entrada es $" + valorEntradaJubilado);
 // }
-a
+
 
 console.log("No sigue evaluando la condición");
             //true    y  true
