@@ -26,28 +26,16 @@ const valorEntradaCine = 1000;
 const edad = prompt("Edad de la persona que ingresa al cine");
 const valorEntradaJubilado = valorEntradaCine * 0.6;
 const valorEntradaAdolescente = valorEntradaCine * 0.8;
+const valorDescuento = valorEntradaCine * 0.5;
 const valorEntradaNiños = 250;
 
-if(edad > 55) {
-    console.info("El valor de la entrada es $" + valorEntradaCine)
+                           
+if(edad > 55 ||  (edad < 18 || edad >= 10)) {
+    console.info("El valor de la entrada es $" + valorDescuento)
 } else if(edad >= 18) {
     console.info("El valor de la entrada es $" + valorEntradaCine);
-} else if(edad >= 10) {
-    console.info("El valor de la entrada es $" + valorEntradaAdolescente);
-} else {
+}  
+else { 
     console.info("El valor de la entrada es $" + valorEntradaNiños);
 }
 
-
-// if(edad >= 10 && edad < 18) {
-//     console.info("El valor de la entrada es $" + valorEntradaAdolescente);
-// } else if(edad >= 18) {
-//     console.info("El valor de la entrada es $" + valorEntradaCine);
-// } else if(edad > 55) {
-//     console.info("El valor de la entrada es $" + valorEntradaJubilado);
-// }
-
-
-console.log("No sigue evaluando la condición");
-            //true    y  true
-            //     true
