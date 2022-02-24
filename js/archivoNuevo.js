@@ -1,21 +1,3 @@
-
-// number -  NaN
-// parseInt(algo)
-// const age = parseInt(prompt('Ingrese su edad'));
-// console.log(age);
-// const normalPrice = 1000
-// let finalPrice;
-//    > =
-// if( age >= 18 ) {
-//     // Codigo que voy a ejecutar si la edad es mayor o igual que 18 = true 
-//     console.info('Usted es mayor de edad, puede ingresar');
-// } else if(age >= 12) {
-//     console.warn('Para poder ingresar debe tener autorización de su mayor a cargo')
-// } else {
-//     console.error('No tiene edad permitida para ingresar');
-// }
-
-
 // Persona ingrese su edad y que basado en ella pueda obtener el precio final que abonara con su entrada al cine
 // valor de entrada al cine es de $1000
 // Personas mayor de 55 años tiene un descuento %40
@@ -30,52 +12,35 @@ const valorDescuento = valorEntradaCine * 0.5;
 const valorEntradaNiños = 250;
 let costoTotalDeEntradas = 0;
 const cantidadDePersonas = prompt("Ingrese la cantidad de miembros de la familia");
-let iteracion = 1;
-let edad = 50;
-let edad = 60;
-// Búcle while
-while(iteracion <= cantidadDePersonas) {
+
+    // 1er parámetro (valor): inicializar contador
+    // 2do parámetro (valor): condición
+    // 3ro parámetro (valor): incrementador/decrementador
+for (let i = 1; i <= cantidadDePersonas; i++) {
+
+    // Todo lo que se va a ejecutar dentro del búcle siempre que se cumpla la condición
     //Código que quiero repetir X cantidad de veces
-    const edad = prompt("Edad de la persona que ingresa al cine");
-                  
-    if(edad > 55) {
+    // do{
+        const edad = parseInt(prompt("Edad de la persona que ingresa al cine"));
+    // }while(edad)
+
+    if (edad > 55) {
         console.info("El valor de la entrada es $ " + valorDescuento);
         costoTotalDeEntradas = costoTotalDeEntradas + valorDescuento;
-    } else if(edad >= 18) {
+    } else if (edad >= 18) {
         console.info("El valor de la entrada es $ " + valorEntradaCine);
         costoTotalDeEntradas = costoTotalDeEntradas + valorEntradaCine; //1000
-    } else if(edad >= 10) {
+    } else if (edad >= 10) {
         console.info("El valor de la entrada es $ " + valorEntradaAdolescente);
         costoTotalDeEntradas = costoTotalDeEntradas + valorEntradaAdolescente;
-    } else { 
+    } else {
         console.info("El valor de la entrada es $ " + valorEntradaNiños);
         costoTotalDeEntradas = costoTotalDeEntradas + valorEntradaNiños;
     }
-    // Esa variable que controla las iteraciones de mi búcle debe si o si incrementarse o decrementarse de tal modo que el búcle en algún momento finalice
-    iteracion = iteracion + 1;
 
 }
 
-console.log(edad)
 console.log(`El valor total a abonar es de ${costoTotalDeEntradas} de contado`)
-
-
-
-// let iteracion = 1;
-
-//     // 1: true
-//     // 2: true
-//     // 3: true
-//     // 4: true
-//     // 5: false
-//     // 6: false
-// do {
-
-//     console.log(`Este es el ciclo número: ${iteracion}`);
-//     iteracion = iteracion + 1;
-//     // iteracion++;
-
-// } while(iteracion < 5)
-
-// console.log('Termino el bucle')
-
+// document.write(`El valor total a abonar es de ${costoTotalDeEntradas} de contado`)
+let divTotal = document.getElementById('total');
+divTotal.textContent = `$ ${costoTotalDeEntradas}`
