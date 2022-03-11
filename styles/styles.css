@@ -75,7 +75,8 @@ a {
 }
 .listadoPais ul li span.pais {
     color: green;
-    margin-right: .5rem;        
+    margin-right: .5rem;  
+         
 }
 .listadoPais ul li span {
     color: dodgerblue;
