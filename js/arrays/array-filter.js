@@ -1,4 +1,5 @@
-const paisesGandoresDeMundiales = [{
+const paisesGandoresDeMundiales = [
+    {
         name: 'Francia',
         year: 2018
     },
@@ -87,7 +88,7 @@ const paisesGandoresDeMundiales = [{
         year: 1966
     },
     {
-        name: 'Brasil',
+        name: '',
         year: 1962
     },
     {
@@ -151,6 +152,7 @@ listarPaises(paisesGandoresDeMundiales);
 function buscarPais(eventoDeJS) {
     const criterioDeBusqueda = eventoDeJS.target.value.toLowerCase();
     //escribir un condicional que no empiece a buscar hasta que al menos se hayan colocado 3 o más
+    
     // ***Opción 2
     // if(criterioDeBusqueda.length < 3) return;
     // ***Opción 1
@@ -164,10 +166,57 @@ function buscarPais(eventoDeJS) {
 
         console.log(paisesFiltrados);
         listarPaises(paisesFiltrados)
+    } else {
+        listarPaises(paisesGandoresDeMundiales)
     }
 
 }
 
+
+const arrayFindMethod = function(){
+
+    const findedCountry = paisesGandoresDeMundiales.find((paisGanador) => {
+        if(paisGanador.name === 'Brasil') {
+            return true
+        };
+    });
+    console.log('findedCountry', findedCountry)
+}
+
+arrayFindMethod()
+
+const arrayFindIndex = function() {
+
+    const findedIndex = paisesGandoresDeMundiales.findIndex((paisGanador) => {
+        if(paisGanador.name === 'Francia') {
+            return true
+        };
+    });
+    console.log('findedIndex', findedIndex);
+    paisesGandoresDeMundiales.splice(findedIndex, 1);
+}
+
+// arrayFindIndex();
+console.log(paisesGandoresDeMundiales)
+
+function arrayReduceMethod() {
+    const totalAcumulado = paisesGandoresDeMundiales.reduce((valorAcumulado, valorActualPais) => {
+        let sumatoriaAñosPaises = valorAcumulado;
+        if(valorActualPais.name === 'Argentina') {
+            sumatoriaAñosPaises += valorActualPais.year;
+            // console.log(sumatoriaAñosPaises)
+            return sumatoriaAñosPaises;
+        }
+        return sumatoriaAñosPaises
+    }, 0)
+
+    console.log(totalAcumulado)
+}
+
+arrayReduceMethod()
+
+
+console.log(paisesGandoresDeMundiales.reverse())
 
 // function saludar(nombre, sexo) {
 //     let letra = 'a';
