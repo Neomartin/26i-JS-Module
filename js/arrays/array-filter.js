@@ -87,7 +87,7 @@ const paisesGandoresDeMundiales = [{
         year: 1966
     },
     {
-        name: '',
+        name: 'Guatemala',
         year: 1962
     },
     {
@@ -385,18 +385,69 @@ const products = [{
 function orderPriceCalculate() {
     const total = products.reduce((acc, product) => {
         let subtotal = acc;
-
-        //Operador ternario igual a if/else
+        // Operador ternario igual a if/else
         // Pregunto si se cumple product.category_id === 'GENERAL'
-        // si es verdaderp ejecuto lo que se encuentra siguiente al signo de pregunta, si es falso lo que esta a la derecha de los 2puntos :
-        const iva = product.category_id === 'GENERAL' ? 1.21 : 1.105
-
+        // Si es verdaderp ejecuto lo que se encuentra siguiente al signo de pregunta, si es falso lo que esta a la derecha de los 2puntos:
+        const iva = product.category_id === 'GENERAL' ? 1.21 : 1.105;
         subtotal += product.price * product.quantity * iva;
         // Retorno el nuevo valor del acumulador
-        return subtotal
-
+        return subtotal;
     }, 0);
     return total;
 }
 
-console.log(orderPriceCalculate())
+console.log(orderPriceCalculate());
+const frutas = [
+    "Aceituna",
+    "Melón",
+    "anana",
+    "bananas",
+    "frutilla",
+    "Melón",
+    "guindas",
+    "manzanas",
+    "naranja"
+];              
+                
+const numeros = [6,1,67,8,10, -5, -3, -100, 75,14,1000010]
+frutas.sort((a, b) => {   
+    if(a.toLowerCase() > b.toLowerCase()){
+        return 1
+    }           
+    if(a.toLowerCase() < b.toLowerCase()) {
+        return -1
+    }
+    return 0
+    // ***Opción 2
+    return a.localeCompare(b)
+
+})
+
+paisesGandoresDeMundiales.push({name: 'francia', year: 2030})
+// Ordenar el array de paises pero por nombre a-z
+
+console.log(paisesGandoresDeMundiales)
+// filtren aquellos paises cuyo año de victoria sea multiplo de 6
+let multiplosDe6Filtrados = paisesGandoresDeMundiales.filter(pais => {
+    console.log(pais.year % 6)
+    if(pais.year % 6 === 0){
+        return true
+    }
+    return false
+})
+
+
+let multiplosForEach = [];
+paisesGandoresDeMundiales.forEach(pais => {
+    if(pais.year % 6 === 0) {
+        multiplosForEach.push(pais)
+    }
+})
+
+
+let shorterVersion = paisesGandoresDeMundiales.filter(pais => !(pais.year % 6)).sort((a,b) => a.name.localeCompare(b.name))
+
+
+console.log('multiplosDe6Filtrados', multiplosDe6Filtrados)
+console.log('multiplosForEach', multiplosForEach)
+console.log('shorterVersion', shorterVersion)
