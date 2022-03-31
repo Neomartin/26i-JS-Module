@@ -1,10 +1,12 @@
 body {
-    color: rgba(255,255,255,0.60);
+    color: rgba(255, 255, 255, 0.60);
 }
+
 a {
     text-decoration: none;
     color: #fff;
 }
+
 .banner {
     color: white;
     background-color: #111;
@@ -18,25 +20,30 @@ a {
 .pre-space {
     white-space: pre-wrap;
     display: block;
-    background-color: rgba(0,0,0,0.25);
+    background-color: rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     margin: .5rem 0 1rem;
     padding: 0 1rem;
 }
+
 .navbar {
     padding: 0;
-    background-image: linear-gradient(to right, #7299d1, #000 45%)  !important;
+    background-image: linear-gradient(to right, #7299d1, #000 45%) !important;
 }
+
 .navbar .navbar-brand {
     padding: 0;
 }
+
 .navbar .navbar-brand img {
     width: 50px;
 }
+
 .js-nav-links ul {
     list-style: none;
     padding: 0;
 }
+
 .js-nav-links li {
     padding: .5rem 1rem;
     text-align: center;
@@ -56,33 +63,70 @@ a {
     border-radius: 10px;
     margin: 1rem;
     padding: 1rem;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
 }
 
 .card span {
     color: blue;
     font-weight: bold;
 }
+
 .listadoPais {
     white-space: normal !important;
 }
+
 .listadoPais ul {
     list-style: none;
 }
+
 .listadoPais ul li {
     padding: .5rem 1rem;
 }
+
 .listadoPais ul li span.pais {
     color: green;
-    margin-right: .5rem;  
-         
+    margin-right: .5rem;
+
 }
+
 .listadoPais ul li span {
     color: dodgerblue;
     margin-left: 1rem;
-    margin-right: .5rem;    
+    margin-right: .5rem;
 }
-.listadoPais ul li:not(:last-child){
+
+.listadoPais ul li:not(:last-child) {
     border-bottom: 1px solid #333;
+}
+
+.alert-tooltip {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem;
+    border-radius: 5px;
+    transition: opacity .5s ease-in-out;
+    opacity: 0;
+}
+.error-message {
+    color: red;
+    background-color: rgba(255, 0, 0, 0.3);
+    border: 1px solid red;
+}
+
+.success-message {
+    color: rgb(24, 83, 24);
+    background-color: rgba(0, 255, 0, 0.3);
+    border: 1px solid rgb(1, 75, 1);
+}
+
+.error-message.visible, .success-message.visible {
+    /* visibility: visible !important; */
+    opacity: 1;
+}
+
+.text-alert {
+    color: red;
 }
