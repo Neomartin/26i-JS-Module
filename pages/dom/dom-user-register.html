@@ -91,6 +91,7 @@
              genero.  
             -->
         <div class="row">
+            
             <div class="col-12 col-md-6 p-5 p-md-3">
                 <form id="user-register" onsubmit="registrarUsuario(event)">
                     <div class="mb-1">
@@ -147,9 +148,7 @@
                         </div>
                     </div>
                     
-                    <div class="text-danger" id="form-error">
-
-                    </div>
+                    <div class="text-danger" id="form-error"></div>
                     <div class="my-3">
                         <button class="btn btn-primary" type="submit">Registrar</button>
                     </div>
@@ -160,7 +159,23 @@
                 </form>
             </div>
             <div class="col-12 col-md-6">
-                <ul id="users-list"></ul>
+                <section class="col-12">
+                    <h2 class="">Login</h2>
+                    <form onsubmit="" id="login">
+                        <div class="mb-1">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input name="email" type="email" class="form-control" id="loginEmail" minlength="10" maxlength="60"
+                                placeholder="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Confirmar Contraseña</label>
+                            <input name="password" type="password" class="form-control" id="loginPassword" maxlength="20" minlength="3" required>
+                        </div>
+                        <button class="btn btn-success" type="submit">Ingresar</button>
+                        <div class="text-danger" id="formLoginError"></div>
+                    </form>
+                </section>
+                <ul id="users-list" class="py-5"></ul>
             </div>
         </div>
 
