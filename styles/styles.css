@@ -6,7 +6,9 @@ a {
     text-decoration: none;
     color: #fff;
 }
-
+.d-none {
+    display: none;
+}
 .banner {
     color: white;
     background-color: #111;
@@ -129,4 +131,50 @@ a {
 
 .text-alert {
     color: red;
+}
+.user-list {
+    padding: 1rem 0;
+}
+.user-list li {
+    padding: .5rem;
+    border: 1px solid dodgerblue;
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    justify-content: space-between;
+}
+.user-list li:not(:last-child) {
+    border-bottom: none;
+}
+
+.user-list li .avatar {
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+}
+
+.user-list li .data {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-list li .data .name {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.user-list li .data .user {
+
+}
+.user-list li .data .email {
+    color: #AAA;
+    font-size: .75rem;
+}
+.user-list li .age {
+    font-weight: 500;
+    color: dodgerblue;
+}
+
+.user-list li .role {
+    font-weight: 500;
+    color: green;
 }
