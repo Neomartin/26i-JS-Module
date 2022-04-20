@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
+        defer>
+    </script>
+    <script src="/js/dom/form-user-register.js" defer></script>
+</head>
+<body  class="bg-dark p-5">
+    <section  class="col-12">
+        <div id="loginSection">
+            <h2 class="">Login</h2>
+            <form id="login">
+                <div class="mb-1">
+                    <label for="loginEmail" class="form-label">Email</label>
+                    <input name="email" type="email" class="form-control" id="loginEmail" minlength="8" maxlength="60"
+                        placeholder="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Confirmar Contraseña</label>
+                    <input name="password" type="password" class="form-control" id="loginPassword" maxlength="20" minlength="3" required>
+                </div>
+                <button class="btn btn-success" type="submit">Ingresar</button>
+                <div class="text-danger" id="formLoginError"></div>
+            </form>
+        </div>
+        <!-- <div id="logout">
+            <button class="btn btn-danger" onclick="logout()">Salir</button>
+        </div> -->
+    </section>
+    <script>
+        user = JSON.parse(localStorage.getItem('currentUser'));
+        if(user) window.location.href = '/index.html';
+        const loginSection = document.getElementById('loginSection')
+        const logoutSection = document.getElementById('logout')
+
+        
+
+const errorMSG = document.getElementById('form-error');
+const usersList = document.querySelector('#users-list')
+
+
+let users = JSON.parse(localStorage.getItem('users')) || [];
+
+
+
+
+function showErrorMsg(message, element, time = 2000) {
+    element.innerText = message;
+    setTimeout(() => {
+        element.innerText = ''
+    }, time)
+}
+
+
+
+// Obtener referencia al formulario de login
+const loginForm = document.getElementById('login');
+const formLoginError = document.getElementById('formLoginError')
+// Detectar cuando se dispara el evento Submit
+// Obtener valores de email y password en el input
+loginForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const inputEmail = loginForm.elements.email.value;
+    const inputPassword = loginForm.elements.password.value;
+    const user = users.find(usr => {
+        return usr.email === inputEmail
+    });
+    console.log('user', user)
+
+    if(!user || user.password !== inputPassword){
+        showErrorMsg('Credenciales incorrectas', formLoginError)
+        return;
+    }
+
+    localStorage.setItem('currentUser', JSON.stringify(user))
+    //loginForm.reset()
+    window.location.href = '/index.html'
+    // window.location.href = '/index.html'
+
+})
+
+function logout() {
+    localStorage.removeItem('currentUser');
+    setTimeout(()=> window.location.href = '/pages/login/login.html', 3000)
+    
+}
+
+/* Buscar si ese correo lo posee algun usuario de mi array, método recomendado find, findIndex
+    - Si NO encuentro ningun usuario con ese correo le retorno un error RETURN 
+    - Si encuentro un usuario con ese correo GUARDO en una variable todo ese usuario
+   Checkeo si la constraña que colocó en el input coincide con la contraseña que tiene ese usuario que obtuve por su correo
+    - No coincide: Devuelvo error indicando que los datos ingresados no son correctos
+    - Si coincide lo dejo hacer login
+        - Almacenar dicho en el localStorage como currentUser
+        ~* Si el login es correcto lo vamos a redireccionar al HOME
+*/
+
+window.onload = () => console.log('Recargo')
+    </script>
+    
+</body>
+</html>

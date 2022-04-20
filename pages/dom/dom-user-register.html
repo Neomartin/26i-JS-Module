@@ -13,6 +13,8 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
         defer>
     </script>
+    <script src="/js/isAuth.js" defer></script>
+    <script src="/js/isAdmin.js" defer></script>
     <script src="/js/dom/form-user-register.js" defer></script>
 </head>
 
@@ -55,6 +57,9 @@
                     </li>
                 </ul>
             </div>
+            <div id="signin">
+                <!-- <button class="btn btn-warning" >Logout</button> -->
+              </div>
         </div>
     </nav>
     <div class="container-fluid banner">
@@ -114,7 +119,7 @@
                     </div>
                     <div class="mb-1">
                         <label for="avatar" class="form-label">Imagen Usuario</label>
-                        <input name="avatar" type="text" class="form-control" maxlength="130"
+                        <input name="avatar" type="file" class="form-control" maxlength="130"
                         placeholder="url" required>
                     </div>
 

@@ -54,6 +54,10 @@ function registrarUsuario(ev) {
         return;
     }
 
+    if (elemento.avatar.value.includes('http') === false) {
+        elemento.avatar.value = '/assets/image/users/default-avatar.png'
+    }
+
 
     console.log(ev)
     const user = {
@@ -86,8 +90,15 @@ function renderUser() {
     const users = JSON.parse(localStorage.getItem('users')) || [];
     usersList.innerHTML = ''
     users.forEach(user => {
+        let imageLink; 
+        if(user.avatar.includes('http')) {
+            imageLink = user.avatar
+        } else {
+            imageLink = '/assets/image/users/default-avatar.png'
+        }
+          
         usersList.innerHTML += `<li>
-                <img class="avatar" src=${user.avatar || ''}></div>
+                <img class="avatar" src=${imageLink} loading="lazy"></div>
                 <div class="data">
                     <div  class="name"> ${user.fullname}</div>
                     <div  class="user"> ${user.username}</div>
